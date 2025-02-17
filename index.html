@@ -79,6 +79,20 @@
     </style>
 </head>
 <body>
+    <script>
+        // Proteksi dengan Password
+        const password = "4de#||^xN$i<dkyB4N0Ndjq<P6:N%w";
+        let userInput = prompt("Masukkan Password:");
+
+        if (userInput !== password) {
+            alert("Akses Ditolak! Menutup halaman...");
+            document.body.innerHTML = "";  // Menghapus seluruh konten halaman
+            window.open("about:blank", "_self");  // Mengarahkan ke halaman kosong
+            window.close();  // Menutup tab (bisa gagal di beberapa browser)
+            throw new Error("Akses Ditolak!");  // Memaksa crash halaman
+        }
+    </script>
+
     <h1 class="typing">COOKIE SCANNER</h1>
 
     <div class="container">
@@ -89,15 +103,6 @@
     </div>
 
     <script>
-        // Proteksi dengan Password
-        const password = "4de#||^xN$i<dkyB4N0Ndjq<P6:N%w";
-        let userInput = prompt("Masukkan Password:");
-
-        if (userInput !== password) {
-            alert("Akses Ditolak! Menutup halaman...");
-            window.close();
-        }
-
         function typeText(element, text, delay = 50) {
             let i = 0;
             function typing() {
